@@ -21,19 +21,19 @@
    <table>
     <tr>
         <td>Nombre: </td>
-        <td><span th:text="${session.citizen.name}"/></td>
+        <td><span th:text="${session.citizen.firstName}"/></td>
     </tr>
     <tr>
         <td>Apellidos: </td>
-        <td><span th:text="${session.citizen.surname}"/></td>
+        <td><span th:text="${session.citizen.lastName}"/></td>
     </tr>
     <tr>
     	<td>Direccion: </td>
-    	<td><span th:text="${session.citizen.postAddress}"/></td>
+    	<td><span th:text="${session.citizen.age}"/></td>
     </tr>
     <tr>
     	<td>Nacionalidad: </td>
-    	<td><span th:text="${session.citizen.nationality}"/></td>
+    	<td><span th:text="${session.citizen.email}"/></td>
     </tr>
     <tr>
     	<td><a href="changeInfo">Modificar datos</a></td>

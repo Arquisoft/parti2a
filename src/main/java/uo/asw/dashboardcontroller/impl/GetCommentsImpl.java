@@ -1,10 +1,10 @@
-package uo.asw.dashboard.impl;
+package uo.asw.dashboardcontroller.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import uo.asw.dashboard.GetComments;
-import uo.asw.dashboard.GetSuggestions;
+import uo.asw.dbmanagement.GetComments;
+import uo.asw.dbmanagement.GetSuggestions;
 import uo.asw.dbmanagement.model.Comment;
 import uo.asw.dbmanagement.repository.CommentRepository;
 

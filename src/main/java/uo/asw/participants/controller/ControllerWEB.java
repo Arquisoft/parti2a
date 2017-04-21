@@ -3,44 +3,26 @@ package uo.asw.participants.controller;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import uo.asw.dashboard.GetComments;
-import uo.asw.dashboard.GetSuggestions;
-import uo.asw.dbmanagement.GetParticipant;
-import uo.asw.dbmanagement.GetUser;
+
 import uo.asw.dbmanagement.UpdateInfo;
 import uo.asw.dbmanagement.model.Citizen;
-import uo.asw.dbmanagement.model.Comment;
-import uo.asw.dbmanagement.model.Suggestion;
-import uo.asw.dbmanagement.model.User;
+
 import uo.asw.participants.util.Check;
 
-import java.util.List;
+
 
 @Controller
 public class ControllerWEB {
 
-	@Autowired
-	private GetParticipant getParticipant;
-
-	@Autowired
-	private GetSuggestions getSuggestions;
-
-	@Autowired
-	private GetComments getComments;
 
 	@Autowired
 	private UpdateInfo updateInfo;
-
-	@Autowired
-	private GetUser getUser;
 
 	/**
 	 * Devuelve la pagina de incio login
@@ -57,52 +39,6 @@ public class ControllerWEB {
 	public String closeSession(HttpSession session, Model model) {
 		session.invalidate();
 		return "log";
-	}
-
-	/**
-	 * Recibe los datos de login del usuario, busca si exite ese usuario y en
-	 * caso de exitir pasa a la siguiente página que muestra la informacion en
-	 * caso contrario muestra la página de error, en caso de no ser un
-	 * participante se comprueba si es otro usuario (politico o admin) y se
-	 * reeenvia a la vista adecuada
-	 * 
-	 * @param session
-	 *            mantiene la sesion
-	 * @param user
-	 *            nombre del login
-	 * @param password
-	 *            contresena del usuario
-	 * @param model
-	 * @return view si exito, error si fracaso
-	 */
-	@RequestMapping(value = "/acceso", method = RequestMethod.POST)
-	public String showInfo(HttpSession session, @RequestParam String user, @RequestParam String password, Model model) {
-
-		Citizen c = null;
-		User u = null;
-
-		if (user != null && password != null) {
-			c = getParticipant.getParticipant(user, password);
-			if (c != null) {
-				session.setAttribute("citizen", c);
-				model.addAttribute("resultado", "Bienvenid@ " + c.getName());
-				return "viewParticipant";
-			} else {
-				// Buscamos si es politico/admin
-				u = getUser.getUser(user, password);
-				if (u != null) {
-					session.setAttribute("user", u);
-					List<Suggestion> suggestions = getSuggestions.getSuggestions();
-					List<Comment> comments = getComments.getComments();
-
-					model.addAttribute("suggestions", suggestions);
-					model.addAttribute("comments", comments);
-					return "panel";
-				}
-			}
-		}
-		return "error";
-
 	}
 
 	/**
@@ -130,14 +66,16 @@ public class ControllerWEB {
 	 * @return pagina siguiente
 	 */
 	@RequestMapping(value = "/changeInfo", method = RequestMethod.POST)
-	public String changePassword(HttpSession session, @RequestParam String password, @RequestParam String newPassword,
+	public String changePassword(HttpSession session,
+			@RequestParam String password, @RequestParam String newPassword,
 			Model model) {
 		Citizen c = (Citizen) session.getAttribute("citizen");
 		if (c != null) {
 			if (c.getPassword().equals(password) && !newPassword.isEmpty()) {
 				c.setPassword(newPassword);
 				updateInfo.updateInfo(c);
-				model.addAttribute("resultado", "Contrasena actualizada correctamente");
+				model.addAttribute("resultado",
+						"Contrasena actualizada correctamente");
 				return "viewParticipant";
 			}
 			return "errorContrasena";
@@ -161,32 +99,23 @@ public class ControllerWEB {
 	 *         registrado
 	 */
 	@RequestMapping(value = "/changeEmail", method = RequestMethod.POST)
-	public String changeEmail(HttpSession session, @RequestParam String email, Model model) {
+	public String changeEmail(HttpSession session, @RequestParam String email,
+			Model model) {
 		Citizen c = (Citizen) session.getAttribute("citizen");
 		if (c != null) {
 			if (!email.isEmpty() && Check.validateEmail(email)) {
 				c.setEmail(email);
 				updateInfo.updateInfo(c);
-				model.addAttribute("resultado", "Email actualizado correctemente a: " + email);
+				model.addAttribute("resultado",
+						"Email actualizado correctemente a: " + email);
 			} else {
-				model.addAttribute("resultado", "El email no es valido, no actualizado a: " + email);
+				model.addAttribute("resultado",
+						"El email no es valido, no actualizado a: " + email);
 			}
 			return "viewParticipant";
 		}
 		return "error";
 	}
 
-	@RequestMapping(value = "/dashboard/suggestion/{id}")
-	public String getDashboardSuggestion(@PathVariable(value = "id") Long id, Model model){
-		Suggestion s = getSuggestions.getSuggestionById(id);
-		model.addAttribute("suggestion", s);
-		return "/detailSuggestion";
-	}
 
-	@RequestMapping(value = "/dashboard/comment/{id}")
-	public String getDashboardComment(@PathVariable(value = "id") Long id, Model model){
-		Comment c = getComments.getCommentById(id);
-		model.addAttribute("comment", c);
-		return "/detailComment";
-	}
 }

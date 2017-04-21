@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import uo.asw.participants.GetParticipantsInfo;
-import uo.asw.participants.util.CitizenMin;
+import uo.asw.dbmanagement.GetParticipant;
+import uo.asw.dbmanagement.util.CitizenMin;
 
 import java.util.Map;
 
@@ -18,7 +18,7 @@ import java.util.Map;
 public class ControllerREST {
 
 	@Autowired
-	private GetParticipantsInfo participantsService;
+	private GetParticipant participantsService;
 
 	@RequestMapping(value = "/user", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = {
 			MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
@@ -31,7 +31,7 @@ public class ControllerREST {
 		String login, password;
 		login = (String) payload.get("login");
 		password = (String) payload.get("password");
-		CitizenMin c = participantsService.getParticipantsInfo(login, password);
+		CitizenMin c = participantsService.getParticipant(login, password);
 		if (c == null) {
 			return new ResponseEntity<CitizenMin>(HttpStatus.NOT_FOUND);
 		}

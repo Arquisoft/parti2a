@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import uo.asw.dbmanagement.GetParticipant;
 import uo.asw.dbmanagement.model.Citizen;
+import uo.asw.dbmanagement.util.CitizenMin;
 
 @Repository
 @Transactional
@@ -19,13 +20,13 @@ public class GetParticipantImpl implements GetParticipant {
 	private EntityManager entityManager;
 
 	@Override
-	public Citizen getParticipant(String login, String password) {
+	public CitizenMin getParticipant(String login, String password) {
 		@SuppressWarnings("unchecked")
 		List<Citizen> citizen = entityManager.createQuery("from Citizen where userName = ?1 and password = ?2")
 				.setParameter(1, login).setParameter(2, password).getResultList();
 		if (citizen.isEmpty())
 			return null;
-		return citizen.get(0);
+		return new CitizenMin(citizen.get(0));
 	}
 
 }

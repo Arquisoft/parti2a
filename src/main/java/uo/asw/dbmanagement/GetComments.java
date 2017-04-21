@@ -1,4 +1,4 @@
-package uo.asw.dashboard;
+package uo.asw.dbmanagement;
 
 import uo.asw.dbmanagement.model.Comment;
 

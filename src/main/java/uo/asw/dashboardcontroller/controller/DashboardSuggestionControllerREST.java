@@ -1,4 +1,4 @@
-package uo.asw.dashboard.controller;
+package uo.asw.dashboardcontroller.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

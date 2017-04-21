@@ -1,6 +1,7 @@
-package uo.asw.participants.util;
+package uo.asw.dbmanagement.util;
 
 import uo.asw.dbmanagement.model.Citizen;
+import uo.asw.participants.util.DateUtil;
 
 import java.util.Date;
 
@@ -8,7 +9,7 @@ public class CitizenMin {
 
 	private String firstName;
 	private String lastName;
-	private int edad;
+	private int age;
 	private Long id;
 	private String email;
 
@@ -16,7 +17,7 @@ public class CitizenMin {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.edad = DateUtil.getYears(fechaNacimiento);
+		this.age = DateUtil.getYears(fechaNacimiento);
 		this.id = id;
 		this.email = email;
 	}
@@ -24,7 +25,7 @@ public class CitizenMin {
 	public CitizenMin(Citizen c) {
 		this.firstName = c.getName();
 		this.lastName = c.getSurname();
-		this.edad = DateUtil.getYears(c.getBornDate());
+		this.age = DateUtil.getYears(c.getBornDate());
 		this.id = c.getId();
 		this.email = c.getEmail();
 	}
@@ -45,12 +46,12 @@ public class CitizenMin {
 		this.lastName = lastName;
 	}
 
-	public int getEdad() {
-		return edad;
+	public int getAge() {
+		return age;
 	}
 
-	public void setEdad(int edad) {
-		this.edad = edad;
+	public void setAge(int age) {
+		this.age = age;
 	}
 
 	public Long getId() {
@@ -71,7 +72,7 @@ public class CitizenMin {
 
 	@Override
 	public String toString() {
-		return "CitizenMin [firstName=" + firstName + ", lastName=" + lastName + ", edad=" + edad + ", id=" + id
+		return "CitizenMin [firstName=" + firstName + ", lastName=" + lastName + ", edad=" + age + ", id=" + id
 				+ ", email=" + email + "]";
 	}
 

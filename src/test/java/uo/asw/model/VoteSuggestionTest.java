@@ -7,9 +7,9 @@ import org.junit.Test;
 
 import uo.asw.dbmanagement.model.Association;
 import uo.asw.dbmanagement.model.Citizen;
-import uo.asw.dbmanagement.model.Comment;
+
 import uo.asw.dbmanagement.model.Suggestion;
-import uo.asw.dbmanagement.model.VoteComment;
+
 import uo.asw.dbmanagement.model.VoteSuggestion;
 import uo.asw.dbmanagement.model.types.VoteType;
 import static org.junit.Assert.assertEquals;

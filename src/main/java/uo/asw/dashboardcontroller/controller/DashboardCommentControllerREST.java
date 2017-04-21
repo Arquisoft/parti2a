@@ -1,10 +1,11 @@
-package uo.asw.dashboard.controller;
+package uo.asw.dashboardcontroller.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import uo.asw.dashboard.GetComments;
+
+import uo.asw.dbmanagement.GetComments;
 import uo.asw.dbmanagement.model.Comment;
 
 import java.util.ArrayList;

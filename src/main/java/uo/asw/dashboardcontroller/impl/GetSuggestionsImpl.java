@@ -1,14 +1,16 @@
-package uo.asw.dashboard.impl;
+package uo.asw.dashboardcontroller.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-import uo.asw.dashboard.GetSuggestions;
+import uo.asw.dbmanagement.GetSuggestions;
 import uo.asw.dbmanagement.model.Suggestion;
 import uo.asw.dbmanagement.repository.SuggestionRepository;
 
 import java.util.List;
 
+@SuppressWarnings("restriction")
 @Service
 public class GetSuggestionsImpl implements GetSuggestions {
 

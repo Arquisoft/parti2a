@@ -1,4 +1,4 @@
-package uo.asw.dashboard.controller;
+package uo.asw.dashboardcontroller.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
