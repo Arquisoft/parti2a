@@ -18,8 +18,8 @@ after_success:
 
 addons:
   sauce_connect:
-    username: "dashboard2a"
-    access_key: "23891e28-8674-4bba-ab7a-6ac197094a02"
+    username: "parti2aUNIOVI"
+    access_key: "f746cb30-b007-44df-a9aa-2dc754317e7c"
 
 
 before_script:
