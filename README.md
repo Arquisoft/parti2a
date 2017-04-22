@@ -20,9 +20,9 @@ Skeleton of participants module
 
 # Funcionamiento:
 ## Interfaz HTML
-1. Escribir en el navegador: http://localhost:8080/
+1. Escribir en el navegador: http://localhost:8090/
 2. Proporcionar los datos de login para los usuarios disponibles:
- * Login: juan, pedro, raul
+ * Login: user1, user2, ... , user10
  * Password: 1234
 3. Aparecerá la pantalla que muestra los datos del usuario
  * Se puede modificar el email (se comprueba si el email es valido)
@@ -32,7 +32,7 @@ Skeleton of participants module
  * Escribir la nueva contraseña
 
 ## Servicio REST
-   El punto de entrada se encuentra en http://localhost:8080/user.
+   El punto de entrada se encuentra en http://localhost:8090/user.
    
    Acepta peticiones POST en formato JSON con el contenido:
    ``{"login":"login_usuario", "password":"contraseña_usuario"}``
@@ -67,7 +67,14 @@ Skeleton of participants module
        <nationality>nacionalidad</nationality>
    </CitizenMin>
    ```
-   
-
+### Dashboard
+1. Escribir en el navegador: http://localhost:8090/
+2. Proporcionar los datos de login para los políticos disponibles:
+ * Login: alcalde, concejal1, concejal2, concejal3, concejal4
+ * Password: 1234
+3. Aparecerá la pantalla que muestra el dashboard con las vistas disponibles para ese usuario
+ * Se puede ver en detalle una sugerencia. Para ello pinchamos en el título.
+ * Se puede ver en detalle un comentario. Para ello pinchamos en su contenido.
+4. Los datos se actualizan automáticamente.
 
 
