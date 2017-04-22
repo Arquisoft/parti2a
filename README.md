@@ -67,7 +67,7 @@ Skeleton of participants module
        <nationality>nacionalidad</nationality>
    </CitizenMin>
    ```
-### Dashboard
+## Dashboard
 1. Escribir en el navegador: http://localhost:8090/
 2. Proporcionar los datos de login para los políticos disponibles:
  * Login: alcalde, concejal1, concejal2, concejal3, concejal4
