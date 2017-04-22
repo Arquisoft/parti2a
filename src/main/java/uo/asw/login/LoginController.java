@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import uo.asw.dbmanagement.GetParticipant;
 import uo.asw.dbmanagement.GetUser;
+import uo.asw.dbmanagement.model.Citizen;
 import uo.asw.dbmanagement.model.User;
-import uo.asw.dbmanagement.util.CitizenMin;
 
 @Controller
 public class LoginController {
@@ -45,14 +45,14 @@ public class LoginController {
 	public String showInfo(HttpSession session, @RequestParam String user,
 			@RequestParam String password, Model model) {
 
-		CitizenMin c = null;
+		Citizen c = null;
 		User u = null;
 
 		if (user != null && password != null) {
 			c = getParticipant.getParticipant(user, password);
 			if (c != null) {
 				session.setAttribute("citizen", c);
-				model.addAttribute("resultado", "Bienvenid@ " + c.getFirstName());
+				model.addAttribute("resultado", "Bienvenid@ " + c.getName());
 				return "viewParticipant";
 			} else {
 				// Buscamos si es politico/admin

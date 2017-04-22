@@ -1,8 +1,9 @@
 package uo.asw.dbmanagement;
 
 
-import uo.asw.dbmanagement.util.CitizenMin;
+import uo.asw.dbmanagement.model.Citizen;
+
 
 public interface GetParticipant {
-	CitizenMin getParticipant(String login, String password);
+	Citizen getParticipant(String login, String password);
 }

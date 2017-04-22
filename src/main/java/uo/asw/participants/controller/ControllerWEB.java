@@ -9,10 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
 import uo.asw.dbmanagement.UpdateInfo;
 import uo.asw.dbmanagement.model.Citizen;
-
 import uo.asw.participants.util.Check;
 
 
@@ -70,6 +68,7 @@ public class ControllerWEB {
 			@RequestParam String password, @RequestParam String newPassword,
 			Model model) {
 		Citizen c = (Citizen) session.getAttribute("citizen");
+		
 		if (c != null) {
 			if (c.getPassword().equals(password) && !newPassword.isEmpty()) {
 				c.setPassword(newPassword);

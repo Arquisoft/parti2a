@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import uo.asw.dbmanagement.GetParticipant;
+import uo.asw.dbmanagement.model.Citizen;
 import uo.asw.dbmanagement.util.CitizenMin;
 
 import java.util.Map;
@@ -27,15 +28,18 @@ public class ControllerREST {
 		// "password"))){
 		// return new ResponseEntity<CitizenMin>(HttpStatus.BAD_REQUEST);
 		// }
-
+		CitizenMin min;
+		Citizen c;
 		String login, password;
 		login = (String) payload.get("login");
 		password = (String) payload.get("password");
-		CitizenMin c = participantsService.getParticipant(login, password);
+		c = participantsService.getParticipant(login, password);
 		if (c == null) {
 			return new ResponseEntity<CitizenMin>(HttpStatus.NOT_FOUND);
+		}else{
+			min = new CitizenMin(c);
 		}
-		return new ResponseEntity<CitizenMin>(c, HttpStatus.OK);
+		return new ResponseEntity<CitizenMin>(min, HttpStatus.OK);
 
 	}
 
