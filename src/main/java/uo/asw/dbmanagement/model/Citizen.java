@@ -74,6 +74,33 @@ public class Citizen {
 		this.nationality = nationality;
 	}
 
+	public Citizen(String nombre, String apellidos, String email,
+			Date fechaNacimiento, String direccionPostal, String nacionalidad,
+			String dni, String nombreUsuario, String contrasena) {
+		super();
+		this.name = nombre;
+		this.surname = apellidos;
+		this.email = email;
+		this.bornDate = fechaNacimiento;
+		this.postAddress = direccionPostal;
+		this.nationality = nacionalidad;
+		this.dni = dni;
+		this.userName = nombreUsuario;
+		this.password = contrasena;
+	}
+
+	public Citizen(String nombre, String apellidos, String email,
+			Date fechaNacimiento, String direccionPostal, String nacionalidad,
+			String dni) {
+		super();
+		this.name = nombre;
+		this.surname = apellidos;
+		this.email = email;
+		this.bornDate = fechaNacimiento;
+		this.postAddress = direccionPostal;
+		this.nationality = nacionalidad;
+		this.dni = dni;
+	}
 	public Set<Comment> getComments() {
 		return new HashSet<>(comments);
 	}

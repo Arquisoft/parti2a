@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
 
 import uo.asw.dbmanagement.GetParticipant;
 import uo.asw.dbmanagement.model.Citizen;
-import uo.asw.dbmanagement.util.CitizenMin;
 
 @Repository
 @Transactional
