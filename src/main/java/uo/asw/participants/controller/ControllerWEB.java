@@ -30,13 +30,13 @@ public class ControllerWEB {
 	 */
 	@RequestMapping(value = { "/", "/portal" }, method = RequestMethod.GET)
 	public String showView(Model model) {
-		return "log";
+		return "login";
 	}
 
 	@RequestMapping(value = { "/closeSession" }, method = RequestMethod.GET)
 	public String closeSession(HttpSession session, Model model) {
 		session.invalidate();
-		return "log";
+		return "login";
 	}
 
 	/**

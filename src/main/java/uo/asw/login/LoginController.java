@@ -44,7 +44,8 @@ public class LoginController {
 	@RequestMapping(value = "/acceso", method = RequestMethod.POST)
 	public String showInfo(HttpSession session, @RequestParam String user,
 			@RequestParam String password, Model model) {
-
+		
+		
 		Citizen c = null;
 		User u = null;
 

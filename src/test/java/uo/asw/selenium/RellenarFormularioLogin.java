@@ -8,16 +8,16 @@ public class RellenarFormularioLogin {
 	
 	 public void rellenaFormulario(WebDriver driver, String puser, String ppasword) throws InterruptedException
 	   {
-			WebElement user = driver.findElement(By.xpath("//*[@id='login_form']/table/tbody/tr[1]/td[2]/input"));
+			WebElement user = driver.findElement(By.xpath("//*[@id='user']"));
 			user.click();
 			user.clear();
 			user.sendKeys(puser);
-			WebElement password = driver.findElement(By.xpath("//*[@id='login_form']/table/tbody/tr[2]/td[2]/input"));
+			WebElement password = driver.findElement(By.xpath("//*[@id='password']"));
 			password.click();
 			password.clear();
 			password.sendKeys(ppasword);
 			//Pulsar el boton de Login.
-			By boton = By.xpath("//*[@id='btnEnviar']");
+			By boton = By.xpath("//*[@id='login_form']/button");
 			driver.findElement(boton).click();	   
 			Thread.sleep(3000);
 	   }
