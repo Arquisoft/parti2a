@@ -25,9 +25,6 @@ public class SauceUtils {
 		WebDriver driver;
 		URL saucelabs = null;
 		
-//		user = "dashboard2a";
-//		password = "23891e28-8674-4bba-ab7a-6ac197094a02";
-		
 		user = System.getenv("SAUCE_USERNAME");
 		password = System.getenv("SAUCE_ACCESS_KEY");
 		

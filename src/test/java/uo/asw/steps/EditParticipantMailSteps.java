@@ -1,5 +1,6 @@
 package uo.asw.steps;
 
+import org.junit.After;
 import org.openqa.selenium.WebDriver;
 import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationContextLoader;
@@ -26,6 +27,12 @@ public class EditParticipantMailSteps {
 	public void run() {
 		driver = SauceUtils.getDriver();
 		driver.navigate().to("http://localhost:8090/");
+	}
+	
+	@After
+	public void end()
+	{
+		driver.quit();
 	}
 
 	

@@ -1,5 +1,6 @@
 package uo.asw.steps;
 
+import org.junit.After;
 import org.openqa.selenium.WebDriver;
 import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationContextLoader;
@@ -27,6 +28,12 @@ public class LoginParticipantSteps {
 		driver = SauceUtils.getDriver();
 		driver.navigate().to("http://localhost:8090/");
 	}
+	
+	@After
+	public void end()
+	{
+		driver.quit();
+	}
 
 	@Dado("^un formulario de login de inicio$")
 	public void un_formulario_de_login_de_inicio() throws Throwable {
@@ -40,6 +47,7 @@ public class LoginParticipantSteps {
 
 	@Entonces("^voy a la pagina del participante$")
 	public void voy_a_la_pagina_del_participante() throws Throwable {
-		SeleniumUtils.textoPresentePagina(driver, "Tu informacion");
+		SeleniumUtils.textoPresentePagina(driver, "Nombre");
+		SeleniumUtils.textoPresentePagina(driver, "Apellidos");
 	}
 }

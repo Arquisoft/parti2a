@@ -1,5 +1,6 @@
 package uo.asw.steps;
 
+import org.junit.After;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.springframework.boot.test.IntegrationTest;
@@ -29,6 +30,12 @@ public class EditParticipantPasswordSteps {
 		driver.navigate().to("http://localhost:8090/");
 	}
 	
+	@After
+	public void end()
+	{
+		driver.quit();
+	}
+	
 	@Dado("^que me logueo en la pagina como participante \"([^\"]*)\" con password \"([^\"]*)\"$")
 	public void que_me_logueo_en_la_pagina_como_participante_con_password(String user, String password) throws Throwable {
 		new RellenarFormularioLogin().rellenaFormulario(driver, user, password);
@@ -36,7 +43,7 @@ public class EditParticipantPasswordSteps {
 
 	@Dado("^pulso en el boton de modificar datos \"([^\"]*)\"$")
 	public void pulso_en_el_boton_de_modificar_datos(String link) throws Throwable {
-		By boton = By.xpath(link);
+		By boton = By.id("modificaDatos");
 		driver.findElement(boton).click();	
 		Thread.sleep(5000);
 	}
@@ -45,13 +52,13 @@ public class EditParticipantPasswordSteps {
 	public void escribo_mi_password_actual_y_escribo_mi_password_nueva(String anterior, String nueva) throws Throwable {
 	    new ModificaPassword().rellenaFormulario(driver, anterior, nueva);
 	}
-
-	@Dado("^pulso en volver a incio \"([^\"]*)\"$")
-	public void pulso_en_volver_a_incio(String link) throws Throwable {
-		By boton = By.xpath(link);
-		driver.findElement(boton).click();	
+	
+	@Dado("^vuelvo al inicio$")
+	public void vuelvo_al_inicio() throws Throwable {
+		driver.navigate().to("http://localhost:8090/");
 		Thread.sleep(5000);
 	}
+
 
 	@Dado("^me vuelvo a loguear como participante \"([^\"]*)\" con la nueva password \"([^\"]*)\"$")
 	public void me_vuelvo_a_loguear_como_participante_con_la_nueva_password(String user, String password) throws Throwable {
@@ -60,7 +67,8 @@ public class EditParticipantPasswordSteps {
 
 	@Entonces("^estoy en la pagina principal de usuario$")
 	public void estoy_en_la_pagina_principal_de_usuario() throws Throwable {
-		SeleniumUtils.textoPresentePagina(driver, "Tu informacion");
+		SeleniumUtils.textoPresentePagina(driver, "Nombre");
+		SeleniumUtils.textoPresentePagina(driver, "Apellidos");
 	}
 
 }

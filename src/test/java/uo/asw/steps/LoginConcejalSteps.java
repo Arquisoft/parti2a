@@ -1,5 +1,6 @@
 package uo.asw.steps;
 
+import org.junit.After;
 import org.openqa.selenium.WebDriver;
 import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationContextLoader;
@@ -28,6 +29,12 @@ public class LoginConcejalSteps {
 		driver.navigate().to("http://localhost:8090/");
 	}
 
+	@After
+	public void end()
+	{
+		driver.quit();
+	}
+	
 	@Dado("^una pagina con un formulario de login$")
 	public void un_formulario_de_login() throws Throwable {
 		SeleniumUtils.textoPresentePagina(driver, "Inicio de sesion");

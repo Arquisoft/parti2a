@@ -2,7 +2,7 @@ package uo.asw.steps;
 
 import cucumber.api.java.Before;
 
-
+import org.junit.After;
 import org.openqa.selenium.WebDriver;
 
 import org.springframework.boot.test.IntegrationTest;
@@ -34,6 +34,13 @@ public class LoginAlcaldeSteps {
 		driver = SauceUtils.getDriver();
 		driver.navigate().to("http://localhost:8090/");
 	}
+	
+	@After
+	public void end()
+	{
+		driver.quit();
+	}
+	
 
 	@Dado("^un formulario de login$")
 	public void un_formulario_de_login() throws Throwable {

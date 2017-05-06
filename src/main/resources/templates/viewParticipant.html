@@ -1,46 +1,102 @@
-<html>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Informacion del participante</title>
+<meta charset="utf-8" />
+<title>Datos del usuario</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link
+	href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"
+	rel="stylesheet" />
+<link th:href="@{/css/participant.css}" rel="stylesheet" />
 </head>
 <body>
+	
+	<div class="container">
 
-<h2>Tu informacion: </h2>
-<form method="POST" action="changeEmail">
-		<table>
-			<tr>
-				<td>Email:</td>
-				<td><input type="text" name="email" required="required"
-					 th:value="${session.citizen.email}" th:placeholder = "${session.citizen.email}"/></td>
-			</tr>
-			<tr>
-				<td colspan="2"><input type="submit" name="updateEmial"
-					value="Actualizar email" /></td>
-			</tr>
-		</table>
-	</form>
-   <table>
-    <tr>
-        <td>Nombre: </td>
-        <td><span th:text="${session.citizen.name}"/></td>
-    </tr>
-    <tr>
-        <td>Apellidos: </td>
-        <td><span th:text="${session.citizen.surname}"/></td>
-    </tr>
-    <tr>
-    	<td>Direccion: </td>
-    	<td><span th:text="${session.citizen.postAddress}"/></td>
-    </tr>
-    <tr>
-    	<td>Nacionalidad: </td>
-    	<td><span th:text="${session.citizen.nationality}"/></td>
-    </tr>
-    <tr>
-    	<td><a href="changeInfo">Modificar datos</a></td>
-    	<td> <a href="/">Volver a inicio</a></td>
-    </tr>
-</table>  
-<br/>
-<i><span th:if="${resultado != null}" th:text="${resultado}">Resultado</span></i>
+		<div class="row">
+			<div class="col-md-5  toppad  pull-right col-md-offset-3 ">
+				<a href="changeInfo" id = "modificaDatos">Modificar datos</a>
+				<a href="/">Salir</a> <br></br>
+			</div>
+			<div
+				class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+
+
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+							<span th:text="${session.citizen.name}"></span>
+						</h3>
+					</div>
+					<form method="POST" action="changeEmail">
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-3 col-lg-3 " align="center">
+								<img alt="User Pic"
+									th:src="@{/img/user.png}"
+									class="img-circle img-responsive" />
+							</div>
+							<div class=" col-md-9 col-lg-9 ">
+								<table class="table table-user-information">
+									<tbody>
+										<tr>
+											<td>Nombre:</td>
+											<td><span th:text="${session.citizen.name}"></span></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>Apellidos:</td>
+											<td><span th:text="${session.citizen.surname}"></span></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>Dirección:</td>
+											<td><span th:text="${session.citizen.postAddress}"></span></td>
+											<td></td>
+										</tr>
+
+										
+										<tr>
+											<td>Nacionalidad:</td>
+											<td><span th:text="${session.citizen.nationality}"></span></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>Email</td>
+											<td><input type="text" name="email" required="required"
+												th:value="${session.citizen.email}"
+												th:placeholder="${session.citizen.email}" />
+											</td>
+											<td>
+											
+											<input type="submit" name="updateEmial" class="btn btn-sm btn-warning" value = "Editar"/>
+													</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					</form>
+					<i><span th:if="${resultado != null}" th:text="${resultado}">Info: </span></i>
+					<div class="panel-footer">
+						<a data-original-title="Broadcast Message" data-toggle="tooltip"
+							type="button" class="btn btn-sm btn-primary" href="#"><i
+							class="glyphicon glyphicon-envelope"></i></a> <span
+							class="pull-right"> <a href="changeInfo"
+							data-original-title="Edit this user" data-toggle="tooltip"
+							type="button" class="btn btn-sm btn-warning"><i
+								class="glyphicon glyphicon-edit"></i></a> <a
+							data-original-title="Remove this user" data-toggle="tooltip"
+							type="button" class="btn btn-sm btn-danger" href="/"><i
+								class="glyphicon glyphicon-remove"></i></a>
+						</span>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	
 </body>
 </html>
