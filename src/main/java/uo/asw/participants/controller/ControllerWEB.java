@@ -13,11 +13,8 @@ import uo.asw.dbmanagement.UpdateInfo;
 import uo.asw.dbmanagement.model.Citizen;
 import uo.asw.participants.util.Check;
 
-
-
 @Controller
 public class ControllerWEB {
-
 
 	@Autowired
 	private UpdateInfo updateInfo;
@@ -45,8 +42,13 @@ public class ControllerWEB {
 	 * @return changeInfo html para modificar datos del usuario
 	 */
 	@RequestMapping(value = "/changeInfo", method = RequestMethod.GET)
-	public String changeInfo() {
-		return "changeInfo";
+	public String changeInfo(HttpSession session) {
+		Citizen c = (Citizen) session.getAttribute("citizen");
+		if (c != null) {
+			return "changeInfo";
+		} else {
+			return "error";
+		}
 	}
 
 	/**
@@ -64,17 +66,15 @@ public class ControllerWEB {
 	 * @return pagina siguiente
 	 */
 	@RequestMapping(value = "/changeInfo", method = RequestMethod.POST)
-	public String changePassword(HttpSession session,
-			@RequestParam String password, @RequestParam String newPassword,
+	public String changePassword(HttpSession session, @RequestParam String password, @RequestParam String newPassword,
 			Model model) {
 		Citizen c = (Citizen) session.getAttribute("citizen");
-		
+
 		if (c != null) {
 			if (c.getPassword().equals(password) && !newPassword.isEmpty()) {
 				c.setPassword(newPassword);
 				updateInfo.updateInfo(c);
-				model.addAttribute("resultado",
-						"Contrasena actualizada correctamente");
+				model.addAttribute("resultado", "Contrasena actualizada correctamente");
 				return "viewParticipant";
 			}
 			return "errorContrasena";
@@ -98,23 +98,19 @@ public class ControllerWEB {
 	 *         registrado
 	 */
 	@RequestMapping(value = "/changeEmail", method = RequestMethod.POST)
-	public String changeEmail(HttpSession session, @RequestParam String email,
-			Model model) {
+	public String changeEmail(HttpSession session, @RequestParam String email, Model model) {
 		Citizen c = (Citizen) session.getAttribute("citizen");
 		if (c != null) {
 			if (!email.isEmpty() && Check.validateEmail(email)) {
 				c.setEmail(email);
 				updateInfo.updateInfo(c);
-				model.addAttribute("resultado",
-						"Email actualizado correctemente a: " + email);
+				model.addAttribute("resultado", "Email actualizado correctemente a: " + email);
 			} else {
-				model.addAttribute("resultado",
-						"El email no es valido, no actualizado a: " + email);
+				model.addAttribute("resultado", "El email no es valido, no actualizado a: " + email);
 			}
 			return "viewParticipant";
 		}
 		return "error";
 	}
-
 
 }
