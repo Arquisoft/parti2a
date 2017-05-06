@@ -43,7 +43,7 @@ public class EditParticipantPasswordSteps {
 
 	@Dado("^pulso en el boton de modificar datos \"([^\"]*)\"$")
 	public void pulso_en_el_boton_de_modificar_datos(String link) throws Throwable {
-		By boton = By.id("modificaDatos");
+		By boton = By.id(link);
 		driver.findElement(boton).click();	
 		Thread.sleep(5000);
 	}
