@@ -1,36 +1,84 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1" />
-<title>Change participant info</title>
+<meta charset="utf-8"/>
+
+<title>Actualizar informacion</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet"/>
+
 </head>
 <body>
-	<h1>
-		Cambiar la contrasena del usuario <span
-			th:text="${session.citizen.name}" />
-	</h1>
-	<form method="POST" action="changeInfo">
-		<table>
-			<tr>
-				<td>Contrasena:</td>
-				<td><input type="password" name="password" required="required"
-					placeholder="Contrasena" /></td>
-			</tr>
-			<tr>
-				<td>Nueva contrasena:</td>
-				<td><input type="password" name="newPassword"
-					required="required" placeholder="Nueva contrasena" /></td>
-			</tr>
-			<tr>
-				<td><input type="submit" name="updateInfo"
-					value="Actualizar contrasena" /></td>
-				<td><input id="btnReset" type="reset" value="Reset" /></td>
-			</tr>
-			<tr>
-				<td><a href="/">Volver a inicio</a></td>
+	<div class="container">
 
-			</tr>
-		</table>
-	</form>
+		<div id="signupbox" style="margin-top: 50px"
+			class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<div class="panel-title">Actualizar información de <span
+							th:text="${session.citizen.name}"></span></div>
+					<div
+						style="float: right; font-size: 85%; position: relative; top: -10px">
+						<a href="/">Salir</a>
+					</div>
+				</div>
+				<div class="panel-body">
+					<form method="post" action="changeInfo">
+
+
+							<table>
+						<tr>
+						
+						<td>
+							<label for="id_password1"
+								class="control-label col-md-4  requiredField">Contrasenia
+								anterior<span class="asteriskField">*</span>
+							</label>
+						</td>
+						<td colspan="2">
+							<div class="controls col-md-8 ">
+								<input class="input-md textinput textInput form-control"
+									id="id_password1" name="password" placeholder="Anterior"
+									type="password" />
+							</div>
+						</td>
+						</tr>
+						<tr>
+						<td>
+							<label for="id_password2"
+								class="control-label col-md-4  requiredField"> Nueva
+								contraseña<span class="asteriskField">*</span>
+							</label>
+						</td>
+						<td colspan="2">
+							<div class="controls col-md-8 ">
+								<input class="input-md textinput textInput form-control"
+									id="id_password2" name="newPassword" placeholder="Nueva"
+									 type="password" />
+							</div>
+						</td>
+						</tr>
+						</table>
+						<div class="form-group">
+							<div class="aab controls col-md-4 "></div>
+							<div class="controls col-md-8 ">
+								<input type="submit" name="updateInfo" value="Actualizar"
+									class="btn btn-primary btn btn-info" id="submit-id-signup" />
+								<input type="reset" name="btnReset" value="Borrar"
+									class="btn btn btn-primary" id="button-id-signup" />
+							</div>
+						</div>
+
+					</form>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
 </body>
 </html>
