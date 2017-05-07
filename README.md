@@ -6,7 +6,7 @@
 # parti2a
 
 [![Join the chat at https://gitter.im/Arquisoft/parti2a](https://badges.gitter.im/Arquisoft/parti2a.svg)](https://gitter.im/Arquisoft/parti2a?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
+[![Parti2a Heroku](https://img.shields.io/badge/View%20on-Heroku-ff69b4.svg)](https://parti2a.herokuapp.com/) 
 
 Skeleton of participants module
 
