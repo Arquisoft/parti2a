@@ -9,7 +9,8 @@ import org.junit.runners.Suite.SuiteClasses;
 	VoteCommentTest.class, 
 	VoteSuggestionTest.class,
 	CreateCommentTest.class,
-	CreateSuggestionTest.class
+	CreateSuggestionTest.class,
+	UtilTest.class
 })
 public class AllTest {
 
