@@ -5,8 +5,8 @@
     <meta name="viewport" content="initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title th:inline="text">Comentario - [[${comment.code}]]</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.0/css/bulma.min.css" integrity="sha256-8nf+BDtOgthqqdcfZXfDwth8LL6k314ILswPBDzXMp4=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.0/chartist.min.css" integrity="sha256-Te9+aTaL9j0U5PzLhtAHt+SXlgIT8KT9VkyOZn68hak=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.0/css/bulma.min.css"/>
     <link rel="stylesheet" th:href="@{/css/styles.css}"/>
 </head>
 <body>
@@ -72,12 +72,8 @@
     var votos = [ [[${comment.positiveVotes}]] , [[${comment.negativeVotes}]] ];
     /*]]>*/
 </script>
-<script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
-<script
-        src="https://code.jquery.com/jquery-3.2.1.min.js"
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js" integrity="sha256-GcknncGKzlKm69d+sp+k3A2NyQE+jnu43aBl6rrDN2I=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.0/chartist.min.js" integrity="sha256-UzffRueYhyZDw8Cj39UCnnggvBfa1fPcDQ0auvCbvCc=" crossorigin="anonymous"></script>
+<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script th:src="@{/js/detailComment.js}"></script>
 <!--<script src="http://aswfiles.hol.es/detailComment.js"></script>-->
 </body>

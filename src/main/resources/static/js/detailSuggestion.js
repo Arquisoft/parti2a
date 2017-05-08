@@ -33,7 +33,7 @@ $( window ).on("load", function() {
             let theRow = $(row).addClass(data.data.type.toLowerCase() + "-vote");
             $('#voteSuggestionTable tbody').append(theRow);
 
-            paintVote(data.data.type)
+            paintVote(data.data.type);
 
             updateSuggestion(data.data.suggestion);
         }
