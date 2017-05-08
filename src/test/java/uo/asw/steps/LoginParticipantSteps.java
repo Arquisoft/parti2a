@@ -25,7 +25,7 @@ public class LoginParticipantSteps {
 
 	@Before
 	public void run() {
-		driver = SauceUtils.getDriver();
+		driver = SauceUtils.getDriver("LoginParticipant");
 		driver.navigate().to("http://localhost:8090/");
 	}
 	

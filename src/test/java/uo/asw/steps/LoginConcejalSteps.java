@@ -25,7 +25,7 @@ public class LoginConcejalSteps {
 
 	@Before
 	public void run() {
-		driver = SauceUtils.getDriver();
+		driver = SauceUtils.getDriver("LoginConcejal");
 		driver.navigate().to("http://localhost:8090/");
 	}
 

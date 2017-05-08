@@ -26,7 +26,7 @@ public class EditParticipantPasswordSteps {
 
 	@Before
 	public void run() {
-		driver = SauceUtils.getDriver();
+		driver = SauceUtils.getDriver("EditParticipantPassword");
 		driver.navigate().to("http://localhost:8090/");
 	}
 	

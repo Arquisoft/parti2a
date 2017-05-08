@@ -31,7 +31,7 @@ public class LoginAlcaldeSteps {
 
 	@Before
 	public void run() {
-		driver = SauceUtils.getDriver();
+		driver = SauceUtils.getDriver("LoginAlcalde");
 		driver.navigate().to("http://localhost:8090/");
 	}
 	

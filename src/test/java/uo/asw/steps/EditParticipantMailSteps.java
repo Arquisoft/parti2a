@@ -25,7 +25,7 @@ public class EditParticipantMailSteps {
 
 	@Before
 	public void run() {
-		driver = SauceUtils.getDriver();
+		driver = SauceUtils.getDriver("EditParticipantMail");
 		driver.navigate().to("http://localhost:8090/");
 	}
 	

@@ -27,7 +27,7 @@ public class LoginUserErrorSteps {
 
 	@Before
 	public void run() {
-		driver = SauceUtils.getDriver();
+		driver = SauceUtils.getDriver("LoginUserError");
 		driver.navigate().to("http://localhost:8090/");
 	}
 
