@@ -25,7 +25,7 @@ $( window ).on("load", function() {
             let theRow = $(row).addClass(data.data.type.toLowerCase() + "-vote");
             $('#voteCommentTable tbody').append(theRow);
 
-            paintVote(data.data.type)
+            paintVote(data.data.type);
 
             updateComment(data.data.comment);
         }
