@@ -12,8 +12,6 @@ import java.util.List;
 
 import uo.asw.dbmanagement.model.Citizen;
 
-
-
 public class TextCitizensReader implements CitizensReader {
 
 	@Override
@@ -22,20 +20,14 @@ public class TextCitizensReader implements CitizensReader {
 		String[] datosCitizen = null;
 		List<Citizen> newCitizens = new ArrayList<Citizen>();
 		try {
-			BufferedReader fichero = new BufferedReader(
-					new FileReader(filePath));
+			BufferedReader fichero = new BufferedReader(new FileReader(filePath));
 			while (fichero.ready()) {
 				linea = fichero.readLine();
 				datosCitizen = linea.split(";");
 				DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 				Date fechaNacimiento = dateFormat.parse(datosCitizen[3]);
-				Citizen citizen = new Citizen(datosCitizen[0], datosCitizen[1],
-						datosCitizen[2], fechaNacimiento, datosCitizen[4],
-						datosCitizen[5], datosCitizen[6]);
-				// De momento el nombre de usuario es su email
-				citizen.setName(citizen.getEmail());
-				// Y su contraseña es nombre + 123
-				citizen.setPassword(citizen.getName() + "123");
+				Citizen citizen = new Citizen(datosCitizen[0], datosCitizen[1], datosCitizen[2], fechaNacimiento,
+						datosCitizen[4], datosCitizen[5], datosCitizen[6], datosCitizen[2], datosCitizen[0] + "123");
 				newCitizens.add(citizen);
 			}
 			fichero.close();
