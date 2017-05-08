@@ -18,8 +18,8 @@ after_success:
 
 addons:
   sauce_connect:
-    username: "parti2aASW"
-    access_key: "486401a4-203f-4a00-aad6-942aebe73044"
+    username: "parti2aASWuniovi"
+    access_key: "3a5b82c5-8722-4b65-bea8-b5bfbaeb4089"
 
 
 before_script:
