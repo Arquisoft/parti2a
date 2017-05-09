@@ -39,7 +39,7 @@ public class Loader {
 				sendEmail(citizen, new TxtEmailWriter());
 				citizenService.insertCitizen(citizen);
 			} else {
-				String mensaje = "El usuario " + citizen.getUserName()						+ " ya está registrado.";
+				String mensaje = "El usuario " + citizen.getUserName() + " ya está registrado.";
 				LogWriter.write(mensaje);
 			}
 		}
@@ -49,7 +49,7 @@ public class Loader {
 		return getReader(formato).readList(filePath);
 	}
 
-	private void sendEmail(Citizen citizen, EmailWriter... writers)
+	public void sendEmail(Citizen citizen, EmailWriter... writers)
 			throws IOException {
 		String email = "To "
 				+ citizen.getEmail()
