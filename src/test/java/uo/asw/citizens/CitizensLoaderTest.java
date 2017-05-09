@@ -9,9 +9,9 @@ import java.util.List;
 
 import org.junit.Test;
 
-import uo.asw.citizensLoader.model.exception.BusinessException;
 import uo.asw.citizensLoader.parser.Loader;
 import uo.asw.dbmanagement.model.Citizen;
+import uo.asw.dbmanagement.model.exception.BusinessException;
 
 
 

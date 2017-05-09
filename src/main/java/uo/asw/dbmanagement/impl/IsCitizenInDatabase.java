@@ -1,6 +1,5 @@
-package uo.asw.citizensLoader.business.impl.citizen;
+package uo.asw.dbmanagement.impl;
 
-import uo.asw.citizensLoader.business.impl.Command;
 import uo.asw.citizensLoader.persistence.CitizenFinder;
 import uo.asw.dbmanagement.model.Citizen;
 

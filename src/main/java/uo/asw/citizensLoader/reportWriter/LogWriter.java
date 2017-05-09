@@ -2,7 +2,7 @@ package uo.asw.citizensLoader.reportWriter;
 
 import java.io.IOException;
 
-import uo.asw.citizensLoader.model.util.Writer;
+import uo.asw.citizensLoader.parser.util.Writer;
 
 
 

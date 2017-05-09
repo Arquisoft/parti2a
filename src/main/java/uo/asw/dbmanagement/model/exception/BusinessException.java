@@ -1,4 +1,4 @@
-package uo.asw.citizensLoader.model.exception;
+package uo.asw.dbmanagement.model.exception;
 
 public class BusinessException extends Exception {
 	private static final long serialVersionUID = 6193644331843268598L;

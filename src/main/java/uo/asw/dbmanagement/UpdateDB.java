@@ -1,12 +1,12 @@
-package uo.asw.citizensLoader.business;
+package uo.asw.dbmanagement;
 
 import java.util.List;
 
-import uo.asw.citizensLoader.model.exception.BusinessException;
 import uo.asw.dbmanagement.model.Citizen;
+import uo.asw.dbmanagement.model.exception.BusinessException;
 
 
-public interface CitizenService {
+public interface UpdateDB {
 
 	void insertCitizen(Citizen citizen) throws BusinessException;
 

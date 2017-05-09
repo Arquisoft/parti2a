@@ -3,16 +3,16 @@ package uo.asw.citizensLoader.parser;
 import java.io.IOException;
 import java.util.List;
 
-import uo.asw.citizensLoader.business.CitizenService;
-import uo.asw.citizensLoader.conf.ServicesFactory;
-import uo.asw.citizensLoader.model.exception.BusinessException;
 import uo.asw.citizensLoader.parser.emailWriter.EmailWriter;
 import uo.asw.citizensLoader.parser.emailWriter.TxtEmailWriter;
-import uo.asw.citizensLoader.parser.reader.CitizensReader;
+import uo.asw.citizensLoader.parser.reader.ReadList;
 import uo.asw.citizensLoader.parser.reader.ExcelCitizensReader;
 import uo.asw.citizensLoader.parser.reader.TextCitizensReader;
 import uo.asw.citizensLoader.reportWriter.LogWriter;
+import uo.asw.dbmanagement.UpdateDB;
+import uo.asw.dbmanagement.conf.ServicesFactory;
 import uo.asw.dbmanagement.model.Citizen;
+import uo.asw.dbmanagement.model.exception.BusinessException;
 
 
 
@@ -30,7 +30,7 @@ public class Loader {
 		
 		List<Citizen> citizens = readCitizens(formato, filePath);
 
-		CitizenService citizenService = ServicesFactory.getCitizenService();
+		UpdateDB citizenService = ServicesFactory.getCitizenService();
 
 		printCitizens(citizens, filePath);
 
@@ -46,7 +46,7 @@ public class Loader {
 	}
 
 	public List<Citizen> readCitizens(String formato, String filePath) throws IOException {
-		return getReader(formato).readCitizens(filePath);
+		return getReader(formato).readList(filePath);
 	}
 
 	private void sendEmail(Citizen citizen, EmailWriter... writers)
@@ -66,7 +66,7 @@ public class Loader {
 	/**
 	 * Crea y devuelve el reader adecuado
 	 */
-	private CitizensReader getReader(String formato) {
+	private ReadList getReader(String formato) {
 		if ("excel".equals(formato)) {
 			return new ExcelCitizensReader();
 		} else if ("texto".equals(formato)) {

@@ -1,11 +1,10 @@
-package uo.asw.citizensLoader.business.impl.citizen;
+package uo.asw.dbmanagement.impl;
 
 import java.util.List;
 
-import uo.asw.citizensLoader.business.impl.Command;
-import uo.asw.citizensLoader.model.exception.BusinessException;
 import uo.asw.citizensLoader.persistence.util.Jpa;
 import uo.asw.dbmanagement.model.Citizen;
+import uo.asw.dbmanagement.model.exception.BusinessException;
 
 
 

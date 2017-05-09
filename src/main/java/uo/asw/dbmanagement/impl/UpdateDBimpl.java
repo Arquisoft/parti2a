@@ -1,17 +1,13 @@
-package uo.asw.citizensLoader.business.impl;
+package uo.asw.dbmanagement.impl;
 
 import java.util.List;
 
-import uo.asw.citizensLoader.business.CitizenService;
-import uo.asw.citizensLoader.business.impl.citizen.AddCitizen;
-import uo.asw.citizensLoader.business.impl.citizen.DeleteAllCitizens;
-import uo.asw.citizensLoader.business.impl.citizen.FindAllCitizens;
-import uo.asw.citizensLoader.business.impl.citizen.IsCitizenInDatabase;
-import uo.asw.citizensLoader.model.exception.BusinessException;
+import uo.asw.dbmanagement.UpdateDB;
 import uo.asw.dbmanagement.model.Citizen;
+import uo.asw.dbmanagement.model.exception.BusinessException;
 
 
-public class CitizenServiceImpl implements CitizenService {
+public class UpdateDBimpl implements UpdateDB {
 
 	private CommandExecutor executor = new CommandExecutor();
 	

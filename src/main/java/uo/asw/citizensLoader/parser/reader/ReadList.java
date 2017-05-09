@@ -7,8 +7,8 @@ import uo.asw.dbmanagement.model.Citizen;
 
 
 
-public interface CitizensReader {
+public interface ReadList {
 
-	List<Citizen> readCitizens(String filePath) throws IOException;
+	List<Citizen> readList(String filePath) throws IOException;
 
 }

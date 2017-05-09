@@ -12,10 +12,10 @@ import java.util.List;
 
 import uo.asw.dbmanagement.model.Citizen;
 
-public class TextCitizensReader implements CitizensReader {
+public class TextCitizensReader implements ReadList {
 
 	@Override
-	public List<Citizen> readCitizens(String filePath) throws IOException {
+	public List<Citizen> readList(String filePath) throws IOException {
 		String linea = "";
 		String[] datosCitizen = null;
 		List<Citizen> newCitizens = new ArrayList<Citizen>();

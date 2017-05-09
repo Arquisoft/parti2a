@@ -1,11 +1,11 @@
-package uo.asw.citizensLoader.business.impl;
+package uo.asw.dbmanagement.impl;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceException;
 
-import uo.asw.citizensLoader.model.exception.BusinessException;
 import uo.asw.citizensLoader.persistence.util.Jpa;
+import uo.asw.dbmanagement.model.exception.BusinessException;
 
 
 

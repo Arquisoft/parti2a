@@ -16,10 +16,10 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import uo.asw.dbmanagement.model.Citizen;
 
-public class ExcelCitizensReader implements CitizensReader {
+public class ExcelCitizensReader implements ReadList {
 
 	@Override
-	public List<Citizen> readCitizens(String filePath) throws IOException {
+	public List<Citizen> readList(String filePath) throws IOException {
 		List<Citizen> citizens = new ArrayList<Citizen>();
 		File file = new File(filePath);
 		FileInputStream inputStream = new FileInputStream(file);

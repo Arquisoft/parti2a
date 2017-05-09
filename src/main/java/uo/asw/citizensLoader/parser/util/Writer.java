@@ -1,4 +1,4 @@
-package uo.asw.citizensLoader.model.util;
+package uo.asw.citizensLoader.parser.util;
 
 import java.io.FileWriter;
 import java.io.IOException;
